@@ -1,10 +1,8 @@
-import self as self
-
-from dao.movie import MovieDao
+from dao.director import DirectorDao
 
 
-class MovieService:
-    def __init__(self, dao: MovieDao):
+class DirectorService:
+    def __init__(self, dao: DirectorDao):
         self.dao = dao
 
     def get_one(self, bid):
