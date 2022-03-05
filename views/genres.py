@@ -1,10 +1,17 @@
 from flask import  request
 from flask_restx import  Resource, Namespace
+from implemented import genre_service
 
-import service
 from dao.model.genre import GenreSchema
 
+
 genre_ns = Namespace('genres')
+
+@genre_ns.route('/')
+class GenresView(Resource):
+    def get(self):
+        all_directors = genre_service.get_all ()
+        return GenreSchema.dump ( all_directors ), 200
 
 @genre_ns.route('/')
 class GenresView(Resource):
